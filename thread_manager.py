@@ -2,6 +2,7 @@ import threading
 import time
 from tqdm import tqdm
 from time import sleep
+import logging
 
 
 class TaskThreadManager:
@@ -16,6 +17,7 @@ class TaskThreadManager:
             self.task_threads.append(TaskThread(delay_between_jobs=delay_between_jobs, delay_between_blocks=delay_between_blocks, progress_bar=pbar))
 
     def start(self):
+        logging.info("Starting Task Thread Manager")
         for thr in self.task_threads:
             thr.start()
 
@@ -27,6 +29,7 @@ class TaskThreadManager:
             None
     """
     def stop(self):
+        logging.info("Stopping Task Thread Manager")
         for thr in self.task_threads:
             thr.stop()
 
@@ -187,7 +190,6 @@ def await_get_output(job_id, manager, sleep_time=0.05):
 
 if __name__ == "__main__":
         from time import sleep
-
 
         def job(i, j):
             for kj in range(3):
