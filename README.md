@@ -23,6 +23,8 @@
 
 ## How To Use
 
+### Setup
+
 Install ThreadManager
 ```
 pip install ThreadManager
